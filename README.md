@@ -5,7 +5,7 @@ this is an "inspirational" repository, it is quite easy to reuse the FullHtml.js
 
 FullHtml and component take unstructured objects as arguments and create document and component strings, respectively. Everything is optional, though it makes sense to add content at some point (a-duh)
 
-FullHtml(body, head) and component(content, attributes) take either string or string[]. write the attributes as you would in any html tag ('readonly', 'color="red"' etc...)
+FullHtml(body, head) and component(content, attributes) take either string or string[]. Write the attributes as you would in any html tag ('readonly', 'color="red"' etc...)
 
 component(selfClosing) takes boolean, but you really only need to define it if you want to make a self-closing tag. For that matter, anything truthy will suffice.
 
