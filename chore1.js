@@ -27,7 +27,6 @@ const updateUsers= (userName)=>{
         })
         
     }, (unfulfill)=>{
-        console.log(unfulfill);
     });
 }
 const s = http.createServer((req, res)=>{
