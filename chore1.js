@@ -48,14 +48,14 @@ const s = http.createServer((req, res)=>{
             }).then((fulfill)=>{
                 const lines = [];
                 fulfill.forEach(element => {
-                    let line = component(element, "li");
+                    let line = component({content:element, type:"li"});
                     lines.push(line);
                 });
-                const list = component(lines, "ul");
-                const title = component("Hall of fame", "h1");
-                const returnToTitle = component("Return to main page", "button", false, 'type="submit"');
-                const sendform = component(returnToTitle, "form", false, 'action="/" method="GET"');
-                res.write(fullHtml(title, list, sendform));
+                const list = component({content: lines, type: "ul"});
+                const title = component({content: "Hall of fame",type: "h1"});
+                const returnToTitle = component({content: "Return to main page", type:"button", attributes:'type="submit"'});
+                const sendform = component({content: returnToTitle, type: "form", attributes: 'action="/" method="GET"'});
+                res.write(fullHtml({body:[title, list, sendform]}));
                 res.end();
             }, (rejected)=>{
                 console.log(rejected);
@@ -77,11 +77,11 @@ const s = http.createServer((req, res)=>{
                 });
             break;
         default: 
-            const input = component("", "input", true, 'name="username"', 'type="text"');
-            const submit = component("Submit", "button", false, 'type="submit"');
-            const login = component([input, submit], "form", false, 'method="POST"', 'action="/create-user"');
-            const title = component("Hello there!", "h1", false);
-            res.write(fullHtml(title, login));
+            const input = component({content:"", type:"input" ,selfClosing: true,  attributes:['name="username"', 'type="text"']});
+            const submit = component({content:"Submit", type: "button", attributes:'type="submit"'});
+            const login = component({content:[input, submit], type:"form", attributes:['method="POST"', 'action="/create-user"']});
+            const title = component({content:"Hello there!",type:"h1"});
+            res.write(fullHtml({body:[title, login]}));
             res.end();
         break;
     }

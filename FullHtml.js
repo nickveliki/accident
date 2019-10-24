@@ -1,14 +1,14 @@
-module.exports=(...content)=>{
-let c = "";
-content.forEach((cc)=>{
-    //console.log(cc);
-    c+=cc;
-})    
+const getComponents = require("./getComponent");
+module.exports=({body, head})=>{
+let b = getComponents(body);
+let h = getComponents(head);
+console.log(b);
 return `<html>
 <head>
-
+    ${h}
 </head>
 <body>
-${c}
+${b}
 </body>
 </html>`};
+
