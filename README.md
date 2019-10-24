@@ -1,11 +1,11 @@
 # accident
-I was performing a udemy assignment and accidentally created a ssr-component-based framework
+I was performing a udemy assignment and accidentally created a ssr-component-based proto-framework
 
 this is an "inspirational" repository, it is quite easy to reuse the FullHtml.js and the component.js.
 
-component.js creates components. since it always outputs string, components can be given component[] as content args.
-Type is mandatory (2.nd arg), self-closing and args are optional, though if you make self-closing components,
-content makes no sense (just put "" in its place, it will be ignored anyways). args is a rest argument, 
-just write whatever you would for the component attributes.
+FullHtml and component take unstructured objects as arguments. everything is optional,though it makes sense to add content at some point (a-duh) and create document and component strings, respectively
 
-fullHtml takes a ...content array as its argument and just adds everything to the body
+FullHtml(body, head) and component(content, attributes) take either string or string[]. write the attributes as you would in any html tag ('readonly', 'color="red"' etc...)
+component:selfClosing takes boolean, but you really only need to define it if you want to make a self-closing tag. For that matter, anything truthy will suffice.
+
+component(type) defines the html tag of your component. "p" will render <p></p>, "input" will render <input /> (if you define the selfClosing property with a truthy value), and undefined (or any falsy value) will render <div></div>
