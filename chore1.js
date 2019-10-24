@@ -77,7 +77,7 @@ const s = http.createServer((req, res)=>{
                 });
             break;
         default: 
-            const input = component({content:"", type:"input" ,selfClosing: true,  attributes:['name="username"', 'type="text"']});
+            const input = component({type:"input" ,selfClosing: true,  attributes:['name="username"', 'type="text"']});
             const submit = component({content:"Submit", type: "button", attributes:'type="submit"'});
             const login = component({content:[input, submit], type:"form", attributes:['method="POST"', 'action="/create-user"']});
             const title = component({content:"Hello there!",type:"h1"});
