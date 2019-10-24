@@ -8,4 +8,4 @@ FullHtml and component take unstructured objects as arguments. Everything is opt
 FullHtml(body, head) and component(content, attributes) take either string or string[]. write the attributes as you would in any html tag ('readonly', 'color="red"' etc...)
 component:selfClosing takes boolean, but you really only need to define it if you want to make a self-closing tag. For that matter, anything truthy will suffice.
 
-component(type) defines the html tag of your component. "p" will render <p></p>, "input" will render <input /> (if you define the selfClosing property with a truthy value), and undefined (or any falsy value) will render <div></div>
+component(type) defines the html tag of your component. "p" will render &ltp>$lt/p>, "input" will render &ltinput /> (if you define the selfClosing property with a truthy value), and undefined (or any falsy value) will render &ltdiv>&lt/div>
